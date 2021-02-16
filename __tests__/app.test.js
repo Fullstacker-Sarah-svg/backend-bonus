@@ -1,3 +1,4 @@
+/* eslint-disable no-unexpected-multiline */
 const fs = require('fs');
 const pool = require('../lib/utils/pool');
 const request = require('supertest');
@@ -73,9 +74,27 @@ describe('bonus-server routes', () => {
       });
   });
 
+  it('Updates a dog by id via put', async() => {
+    const dog = await Dog.insert
+    ({ name: 'Golden Retrever', type: 'dog', characteristic: 'gold' });
+    
+    return request(app)
+      .put(`/api/v1/dogs/${dog.id}`)
+      .send({
+        name: 'Golden Retrever', 
+        type: 'dog', 
+        characteristic: 'long golden hair'
+      })
+      .then(res => {
+        expect(res.body).toEqual({
+          id: expect.any(String),
+          name: 'Golden Retrever',
+          type: 'dog',
+          characteristic: 'long golden hair'
+        });
+      });
+  });
+
 
 });
-//  id: expect.any(String),
-//       name: 'turtle',
-//       type: 'reptile',
-//       characteristic: 'protective shell'
+
