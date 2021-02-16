@@ -1,3 +1,5 @@
+
+require('dotenv').config();
 const app = require('./lib/app');
 const pool = require('./lib/utils/pool');
 

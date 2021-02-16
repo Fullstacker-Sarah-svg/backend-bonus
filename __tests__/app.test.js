@@ -29,7 +29,7 @@ describe('bonus-server routes', () => {
       });
   });
 
-  it('Gets all animals via GET', async() => {
+  it('Gets all dog via GET', async() => {
     const dogs = await Promise.all([
       { name: 'lion', type: 'german shepard', characteristic: 'long hair' },
       { name: 'waldo', type: 'dalmation', characteristic: 'spots' },
@@ -74,7 +74,7 @@ describe('bonus-server routes', () => {
       });
   });
 
-  it('Updates a dog by id via put', async() => {
+  it.skip('Updates a dog by id via put', async() => {
     const dog = await Dog.insert
     ({ name: 'Golden Retrever', type: 'dog', characteristic: 'gold' });
     
