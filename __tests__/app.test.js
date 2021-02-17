@@ -74,7 +74,7 @@ describe('bonus-server routes', () => {
       });
   });
 
-  it.skip('Updates a dog by id via put', async() => {
+  it('Updates a dog by id via put', async() => {
     const dog = await Dog.insert
     ({ name: 'Golden Retrever', type: 'dog', characteristic: 'gold' });
     
@@ -86,7 +86,7 @@ describe('bonus-server routes', () => {
         characteristic: 'long golden hair'
       })
       .then(res => {
-        expect(res.body).toEqual({
+        expect(res.body).toEqual({ 
           id: expect.any(String),
           name: 'Golden Retrever',
           type: 'dog',
